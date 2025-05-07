@@ -4,13 +4,13 @@ from discord.ext import commands
 from keep_alive import keep_alive  # Для Replit
 
 # === Загрузка конфигурации ===
-with open("config.json", "r") as f:
-    config = json.load(f)
+import os
 
-TOKEN = config["token"]
-NEW_ROLE_ID = config["new_role_id"]
-MEMBER_ROLE_ID = config["member_role_id"]
-RULES_CHANNEL_ID = config["rules_channel_id"]
+TOKEN = os.environ["token"]
+NEW_ROLE_ID = int(os.environ["new_role_id"])
+MEMBER_ROLE_ID = int(os.environ["member_role_id"])
+RULES_CHANNEL_ID = int(os.environ["rules_channel_id"])
+
 
 # === Интенты ===
 intents = discord.Intents.default()
